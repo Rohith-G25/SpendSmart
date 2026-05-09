@@ -1,0 +1,94 @@
+@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=JetBrains+Mono:wght@500;600;700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  * { box-sizing: border-box; }
+
+  :root {
+    --background: 228 20% 7%;
+    --foreground: 228 40% 96%;
+
+    --card: 230 18% 15%;
+    --card-foreground: 228 40% 96%;
+    --card-hover: 232 22% 20%;
+
+    --popover: 230 18% 15%;
+    --popover-foreground: 228 40% 96%;
+
+    --primary: 142 71% 45%;
+    --primary-foreground: 0 0% 100%;
+
+    --secondary: 230 16% 18%;
+    --secondary-foreground: 228 40% 96%;
+
+    --muted: 230 16% 18%;
+    --muted-foreground: 230 14% 50%;
+
+    --accent: 230 20% 24%;
+    --accent-foreground: 228 40% 96%;
+
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 0 0% 100%;
+
+    --border: 232 18% 22%;
+    --border-light: 232 16% 28%;
+    --input: 230 20% 13%;
+    --ring: 142 71% 45%;
+
+    --radius: 0.75rem;
+
+    --accent-blue: 217 91% 60%;
+    --accent-purple: 271 91% 65%;
+    --accent-amber: 38 92% 50%;
+    --accent-cyan: 187 92% 41%;
+    --accent-orange: 24 95% 53%;
+
+    --text-muted: 232 15% 40%;
+
+    --sidebar-background: 228 18% 10%;
+    --sidebar-foreground: 230 14% 50%;
+    --sidebar-primary: 142 71% 45%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 230 18% 15%;
+    --sidebar-accent-foreground: 228 40% 96%;
+    --sidebar-border: 232 18% 22%;
+    --sidebar-ring: 142 71% 45%;
+  }
+
+  body {
+    @apply bg-background text-foreground;
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  ::-webkit-scrollbar { width: 4px; height: 4px; }
+  ::-webkit-scrollbar-track { background: hsl(var(--secondary)); }
+  ::-webkit-scrollbar-thumb { background: hsl(var(--border-light)); border-radius: 4px; }
+
+  * {
+    @apply border-border;
+  }
+}
+
+@layer components {
+  .page-enter {
+    animation: fadeSlideUp 0.3s ease forwards;
+  }
+  @keyframes fadeSlideUp {
+    from { opacity: 0; transform: translateY(12px); }
+    to   { opacity: 1; transform: translateY(0); }
+  }
+
+  .shimmer {
+    background: linear-gradient(90deg, hsl(var(--card)) 25%, hsl(var(--card-hover)) 50%, hsl(var(--card)) 75%);
+    background-size: 200% 100%;
+    animation: shimmer 1.5s infinite;
+  }
+  @keyframes shimmer {
+    0%   { background-position: 200% 0; }
+    100% { background-position: -200% 0; }
+  }
+}
