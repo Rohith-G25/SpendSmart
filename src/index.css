@@ -1,0 +1,83 @@
+@import url('https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400;500;600;700;800&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap');
+
+@import "tailwindcss";
+@config "../tailwind.config.js";
+
+@layer base {
+  body {
+    @apply bg-dark-bg text-dark-text font-sans antialiased selection:bg-neon-purple selection:text-white;
+    background-image: 
+      radial-gradient(at 10% 20%, rgba(168, 85, 247, 0.08) 0px, transparent 50%),
+      radial-gradient(at 90% 80%, rgba(236, 72, 153, 0.08) 0px, transparent 50%);
+    background-attachment: fixed;
+    min-height: 100vh;
+  }
+}
+
+/* Glassmorphism card utilities */
+.glass-card {
+  background: rgba(15, 20, 35, 0.6);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  border-radius: 24px;
+}
+
+.glass-card-hover {
+  @apply transition-all duration-300 hover:border-neon-purple/40 hover:shadow-neon-purple/10 hover:shadow-lg;
+}
+
+.glass-modal {
+  background: rgba(10, 14, 25, 0.95);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.glass-input {
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 12px;
+  @apply text-white px-4 py-3 outline-none transition-all duration-200 focus:border-neon-purple focus:ring-1 focus:ring-neon-purple/50;
+}
+
+/* Neon glow texts */
+.text-glow-purple {
+  text-shadow: 0 0 10px rgba(168, 85, 247, 0.5);
+}
+
+.text-glow-pink {
+  text-shadow: 0 0 10px rgba(236, 72, 153, 0.5);
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #080a10;
+}
+
+::-webkit-scrollbar-thumb {
+  background: rgba(168, 85, 247, 0.3);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(168, 85, 247, 0.6);
+}
+
+/* Gradients */
+.gradient-text {
+  @apply bg-clip-text text-transparent bg-gradient-to-r from-neon-purple via-neon-pink to-neon-cyan font-display;
+}
+
+.gradient-bg {
+  @apply bg-gradient-to-r from-neon-purple to-neon-pink;
+}
+
+.gradient-btn {
+  @apply relative overflow-hidden transition-all duration-300 hover:scale-105 active:scale-95 text-white font-semibold rounded-xl bg-gradient-to-r from-neon-purple to-neon-pink hover:shadow-neon-pink/30 hover:shadow-md;
+}
